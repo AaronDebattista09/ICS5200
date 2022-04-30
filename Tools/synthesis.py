@@ -83,8 +83,9 @@ class Synthesizer(object):
         self.tokenized_source = tokenized_source
 
     def synthesize(self, synthesis_strategy, rounding=math.ceil, key_map=KEYBOARD_MAP_ALPHA_ONLY,
-                   sentence_seed=0, token_seed=0,  # All strategies
-                   character_seed=0  # Key Proximity
+                   sentence_seed=1, token_seed=1,  # All strategies
+                   character_seed=1,  # Key Proximity
+                   dropout_modulus=0  # Organised Dropout
                    ):
         """
 
@@ -103,6 +104,8 @@ class Synthesizer(object):
 
         for row_idx in rows_to_synthesize_idx:
             row = sentences[row_idx]
+            for_deletion = []
+
             tokens_to_synthesize_idx = _index_slicer(row, rounding(len(row) * token_seed))
 
             for token_idx in tokens_to_synthesize_idx:
@@ -182,9 +185,19 @@ class Synthesizer(object):
 
                     row[token_idx] = token
 
-                elif synthesis_strategy == SynthesisStrategy.DROPOUT:
+                elif synthesis_strategy == SynthesisStrategy.RANDOM_DROPOUT:
 
-                    del row[token_idx]
+                    for_deletion.append(token_idx)
+
+                # This variant ensures that Nth token is removed sequentially
+                elif synthesis_strategy == SynthesisStrategy.ORGANISED_DROPOUT:
+
+                    if (token_idx+1) % dropout_modulus == 0:
+                        for_deletion.append(token_idx)
+
+            for_deletion.sort(reverse=True)
+            for token_idx in for_deletion:
+                del row[token_idx]
 
             sentences[row_idx] = row
 
@@ -199,7 +212,8 @@ class SynthesisStrategy(enum.Enum):
     KEY_INSERTION = 5
     NO_FONTS = 6
     NO_SILENT_LETTERS = 7
-    DROPOUT = 8
+    RANDOM_DROPOUT = 8
+    ORGANISED_DROPOUT = 9
 
 
 def _index_slicer(element_list, k_val):
