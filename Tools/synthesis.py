@@ -248,7 +248,7 @@ class Synthesizer(object):
                 elif synthesis_strategy == SynthesisStrategy.COMMON_ARTICLE_ERRORS:
 
                     if token in ARTICLE_MAP.keys():
-                        row[token_idx] = token.replace(token, random.choice(ARTICLE_MAP[token]))
+                        row[token_idx] = token.replace(token, choice(ARTICLE_MAP[token]))
 
             for_deletion.sort(reverse=True)
             for token_idx in for_deletion:
