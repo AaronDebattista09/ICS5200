@@ -12,6 +12,12 @@ from abc import ABC, abstractmethod
 import re
 import os
 
+import sys,subprocess
+
+
+def install(package):
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "sentence_splitter"])
+
 
 class MTRegex:
     # Definite article + prepositions with cliticised article
