@@ -45,4 +45,4 @@ def generate_m2_reference(tokenised_reference_file, output_path):
         token_list = list(token_list)
 
         ref_file = TaggedReferenceFile(token_list)
-        ref_file.write_to_file("test.txt")
+        ref_file.write_to_file(output_path)
