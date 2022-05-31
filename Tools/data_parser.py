@@ -2,7 +2,6 @@ import shutil
 import xml.etree.ElementTree as ET
 import os
 import re
-import glob
 
 from io import StringIO
 from pdfminer.converter import TextConverter
@@ -82,18 +81,6 @@ def generate_originals():
             obj_file.recover_original()
 
 
-# pdf_file_obj = open('../MalDiploma/Training/Vetted/110131_MAL1031_ortog2 (B).pdf', 'rb')
-# pdfreader = PyPDF2.PdfFileReader(pdf_file_obj)
-#
-# # This will store the number of pages of this pdf file
-# text = ""
-#
-# for page in pdfreader.pages:
-#     text += page.extract_text()
-#
-# with open("../MalDiploma/Training/Converted/110131_MAL1031_ortog2 (B).txt", "w", encoding="utf-8") as f:
-#     f.write(text)
-
 def _pdf_to_text(filename):
     output_string = StringIO()
     with open(filename, 'rb') as in_file:
@@ -130,10 +117,4 @@ def convert_pdf_files():
 
         with open(file.replace('Vetted', 'Converted').replace('pdf', 'txt'), 'w', encoding='utf-8') as f:
             f.write('\n'.join(lines))
-
-
-listdir = glob.glob('../MalDiploma/Training/Converted/*.txt')
-
-for file in listdir:
-    print("File: {0} - Count {1}".format(file, sum(1 for line in open(file, encoding="utf-8"))))
 
