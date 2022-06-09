@@ -1,0 +1,7 @@
+\begin{{figure}}[H]
+    \centering
+    {tkz}
+    \caption{{{caption}}}
+    \label{{{label}}}
+\end{{figure}}
+

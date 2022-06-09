@@ -1,0 +1,14 @@
+\begin{{table*}}
+    \centering
+    \caption{{{title}}}
+    \label{{{label}}}
+    \begin{{tabular}}{{ |p{{2cm}}||p{{1.2cm}}|p{{1.2cm}}|p{{1.2cm}}|p{{1.2cm}}|p{{1.2cm}}|p{{1.2cm}}|p{{1.2cm}}|p{{1.2cm}}| }}
+         \hline
+          \multirow{{2}}{{*}}{{Updates}} & \multicolumn{{2}}{{c|}}{{BLEU}} & \multicolumn{{2}}{{c|}}{{Cross Entropy}}  & \multicolumn{{2}}{{c|}}{{CE Mean Words}} & \multicolumn{{2}}{{c|}}{{Perplexity}} \\
+          \cline{{2-9}}
+           & Run & Best & Run & Best & Run & Best & Run & Best \\
+         \hline
+         {data}
+         \hline
+        \end{{tabular}}
+\end{{table*}}

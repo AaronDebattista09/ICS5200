@@ -1,0 +1,1 @@
+{updates} & {bleu_running:.2f} & {bleu_best:.2f} & {cross_entropy_running:.2f} & {cross_entropy_best:.2f} & {mean_words_running:.2f} & {mean_words_best:.2f} & {perplexity_running:.2f} & {perplexity_best:.2f} \\

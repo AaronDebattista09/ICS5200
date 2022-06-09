@@ -1,0 +1,36 @@
+\begin{{tikzpicture}}[thick,scale=0.60, every node/.style={{transform shape}}]
+        \begin{{axis}}[
+            title={{{title}}},
+            xlabel={{{xlabel}}},
+            ylabel={{{ylabel}}},
+            xmin={xmin}, xmax={xmax},
+            ymin={ymin}, ymax={ymax},
+            xtick={{{xtick}}},
+            ytick={{{ytick}}},
+            legend pos={legend_pos},
+            ymajorgrids=true,
+            grid style=dashed,
+        ]
+
+        % RUN
+        \addplot[
+            color={color},
+            mark={run_mark},
+            densely dashdotted
+        ]
+        coordinates {{
+            {coord_run}
+        }};
+
+        % BEST
+        \addplot[
+            color={color},
+            mark={best_mark}
+        ]
+        coordinates {{
+            {coord_best}
+        }};
+        \legend{{{legend}}}
+
+        \end{{axis}}
+    \end{{tikzpicture}}
