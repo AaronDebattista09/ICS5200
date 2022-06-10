@@ -70,14 +70,14 @@ class XMLFileObject(object):
 
 
 def generate_originals():
-    for xml_list_file in ['../MalDiploma/Mal1030-sem2/files.xml', '../MalDiploma/Mal1031-sem1/files.xml']:
+    for xml_list_file in ['../QariTalProvi_Batch_2/Mal1030-sem2/files.xml', '../QariTalProvi_Batch_2/Mal1031-sem1/files.xml']:
         print("Processing File: " + xml_list_file)
 
         tree = ET.parse(xml_list_file)
         root = tree.getroot()
 
         for file_xml in root.findall("file"):
-            obj_file = XMLFileObject(file_xml, xml_list_file.replace('.xml', ''), '../MalDiploma/Originals')
+            obj_file = XMLFileObject(file_xml, xml_list_file.replace('.xml', ''), '../QariTalProvi_Batch_2/Originals')
             obj_file.recover_original()
 
 
@@ -106,7 +106,7 @@ def _pdf_to_text(filename):
 
 
 def convert_pdf_files():
-    listdir = glob.glob('../MalDiploma/Training/Vetted/*.pdf')
+    listdir = glob.glob('../QariTalProvi_Batch_2/Training/Vetted/*.pdf')
     no_of_files = len(listdir)
     counter = 0
 
