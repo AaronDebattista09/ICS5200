@@ -39,10 +39,11 @@ Contains template files for plots/tables on Latex. It is not important for asses
 
 Contains a number of tools used in support of the project.
 
-* **alignment** - Generates alignment files.
-* **data_parser** - Was used to parse documents from QariTalProvi_Batch_1
-* **HF2M** - Converts BERT model files into Marian-readable model files.
-* **M2_reference_generator** - Used to generate reference M2 files for target files used in the final model (QariTalProvi_Batch_2)
-* **noiser** - Calls methods from 'synthesis.py' in order to apply noise to the files from Common Voice and MLRS.
-* **synthesis** - A library of synthesis methods.
-* **tokenisation** - Contains Maltese tokeniser.
+* **alignment.py** - Generates alignment files.
+* **data_parser_QTP_Batch1.py** - Was used to parse documents from QariTalProvi_Batch_1
+* **data_parser_QTP_Batch2.py** - Was used to parse documents from QariTalProvi_Batch_2
+* **HF2M.py** - Converts BERT model files into Marian-readable model files.
+* **M2_reference_generator.py** - Used to generate reference M2 files for target files used in the final model (QariTalProvi_Batch_2)
+* **noiser.py** - Calls methods from 'synthesis.py' in order to apply noise to the files from Common Voice and MLRS.
+* **synthesis.py** - A library of synthesis methods.
+* **tokenisation.py** - Contains Maltese tokeniser.
